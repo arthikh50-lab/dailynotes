@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Notes — Capture Your Thoughts</title>
+  <meta name="description" content="A beautiful daily notes app to capture, organize, and manage your thoughts by date." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+
+  <div class="app-container">
+  
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">📝</span>
+        <h1>Daily Notes</h1>
+      </div>
+      <p class="tagline">Capture your thoughts, one day at a time.</p>
+    </header>
+
+    <section class="note-form-section glass-card" id="formSection">
+      <h2 class="section-title">
+        <span class="section-icon">✍️</span>
+        New Note
+      </h2>
+      <form id="noteForm" autocomplete="off">
+        <div class="form-group">
+          <label for="noteDate">Date</label>
+          <input type="date" id="noteDate" required />
+        </div>
+        <div class="form-group">
+          <label for="noteText">Your Note</label>
+          <textarea id="noteText" rows="4" placeholder="What's on your mind today…" required></textarea>
+        </div>
+        <button type="submit" id="submitBtn" class="btn-primary">
+          <span class="btn-text">Save Note</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </form>
+     
+      <div id="toast" class="toast hidden"></div>
+    </section>
+
+  
+    <section class="notes-list-section" id="notesSection">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-icon">📋</span>
+          Your Notes
+        </h2>
+        <span class="note-count" id="noteCount">0 notes</span>
+      </div>
+
+     
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🗒️</div>
+        <p>No notes yet. Start by adding your first note above!</p>
+      </div>
+
+      
+      <div class="notes-grid" id="notesGrid"></div>
+    </section>
+  </div>
+
+  
+  <div class="modal-overlay hidden" id="deleteModal">
+    <div class="modal glass-card">
+      <div class="modal-icon">⚠️</div>
+      <h3>Delete Note?</h3>
+      <p>This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn-secondary" id="cancelDelete">Cancel</button>
+        <button class="btn-danger" id="confirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
