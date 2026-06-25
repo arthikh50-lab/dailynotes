@@ -15,7 +15,6 @@
   <div class="bg-blob blob-1"></div>
   <div class="bg-blob blob-2"></div>
   <div class="bg-blob blob-3"></div>
-
   <div class="app-container">
   
     <header class="app-header">
@@ -25,7 +24,6 @@
       </div>
       <p class="tagline">Capture your thoughts, one day at a time.</p>
     </header>
-
     <section class="note-form-section glass-card" id="formSection">
       <h2 class="section-title">
         <span class="section-icon">✍️</span>
@@ -35,6 +33,10 @@
         <div class="form-group">
           <label for="noteDate">Date</label>
           <input type="date" id="noteDate" required />
+        </div>
+        <div class="form-group">
+          <label for="noteName">Note Name</label>
+          <input type="text" id="noteName" placeholder="e.g. Meeting Notes, Daily Standup…" required />
         </div>
         <div class="form-group">
           <label for="noteText">Your Note</label>
@@ -48,7 +50,6 @@
      
       <div id="toast" class="toast hidden"></div>
     </section>
-
   
     <section class="notes-list-section" id="notesSection">
       <div class="section-header">
@@ -58,18 +59,33 @@
         </h2>
         <span class="note-count" id="noteCount">0 notes</span>
       </div>
-
+      <!-- Filter Bar -->
+      <div class="filter-bar glass-card" id="filterBar">
+        <div class="filter-search">
+          <span class="filter-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search notes…" autocomplete="off" />
+          <button class="filter-clear hidden" id="clearSearch" title="Clear search" aria-label="Clear search">✕</button>
+        </div>
+        <div class="filter-date">
+          <span class="filter-icon">📅</span>
+          <input type="date" id="filterDate" title="Filter by date" />
+          <button class="filter-clear hidden" id="clearDate" title="Clear date filter" aria-label="Clear date filter">✕</button>
+        </div>
+      </div>
+      <!-- No results state -->
+      <div class="no-results hidden" id="noResults">
+        <div class="empty-icon">🔎</div>
+        <p>No notes match your search.</p>
+      </div>
      
       <div class="empty-state" id="emptyState">
         <div class="empty-icon">🗒️</div>
         <p>No notes yet. Start by adding your first note above!</p>
       </div>
-
       
       <div class="notes-grid" id="notesGrid"></div>
     </section>
   </div>
-
   
   <div class="modal-overlay hidden" id="deleteModal">
     <div class="modal glass-card">
@@ -82,7 +98,6 @@
       </div>
     </div>
   </div>
-
   <script src="app.js"></script>
 </body>
 </html>
